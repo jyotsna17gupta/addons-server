@@ -337,6 +337,8 @@ class AddonFormMedia(AddonFormBase):
             dirname = addon.get_icon_dir()
             destination = os.path.join(dirname, '%s' % addon.id)
 
+            print('Save to destination', destination)
+            print(self.cleaned_data)
             remove_icons(destination)
             devhub_tasks.resize_icon.delay(
                 upload_path, destination, amo.ADDON_ICON_SIZES,

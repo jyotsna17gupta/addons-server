@@ -898,6 +898,7 @@ def addons_section(request, addon_id, addon, section, editable=False):
             if form.is_valid() and (not previews or previews.is_valid()):
                 addon = form.save(addon)
 
+                print('XXXXXXXXXXX', form.cleaned_data, addon, addon.icon_type, addon.icon_hash)
                 if previews:
                     for preview in previews.forms:
                         preview.save(addon)

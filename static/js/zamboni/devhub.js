@@ -606,7 +606,6 @@ function initUploadIcon() {
 
     // Upload an image!
     var $f = $('#edit-addon-media, #submit-media'),
-
         upload_errors = function(e, file, errors){
             var $error_list = $('#icon_preview').parent().find(".errorlist");
             $.each(errors, function(i, v){
@@ -615,6 +614,10 @@ function initUploadIcon() {
         },
 
         upload_success = function(e, file, upload_hash) {
+            console.log('XXXXXXXXXXXXXXXXX', 'SUCCESS');
+            console.log('eeeeeee', e);
+            console.log('fffffff', file);
+            console.log('hhhhhhh', upload_hash);
             $('#id_icon_upload_hash').val(upload_hash);
             $('#icons_default a.active').removeClass('active');
 

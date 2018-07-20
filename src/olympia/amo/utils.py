@@ -604,6 +604,7 @@ def resize_image(source, destination, size=None):
         if size:
             im = processors.scale_and_crop(im, size)
     with storage.open(destination, 'wb') as fp:
+        print('LLLLLLLLLLLL', 'save destination', destination)
         # Save the image to PNG in destination file path. Don't keep the ICC
         # profile as it can mess up pngcrush badly (mozilla/addons/issues/697).
         im.save(fp, 'png', icc_profile=None)
@@ -612,6 +613,7 @@ def resize_image(source, destination, size=None):
 
 
 def remove_icons(destination):
+    print('REMOVE ICONS', destination)
     for size in ADDON_ICON_SIZES:
         filename = '%s-%s.png' % (destination, size)
         if storage.exists(filename):
